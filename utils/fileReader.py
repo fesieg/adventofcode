@@ -1,7 +1,9 @@
-def getTextFileContentAsListOfLines(filePath, trim):
+def getTextFileContentAsListOfLines(filePath):
     with open(filePath) as inputFile:
         inputLines = inputFile.readlines()
-    if trim:
-        return [x.strip() for x in inputLines]
-    else:
-        return [x.replace('\n', ' ').replace('\r', '') for x in inputLines]
+    return [x.strip() for x in inputLines]
+
+
+def getTextFileContentAsString(filePath):
+    with open(filePath) as inputFile:
+        return inputFile.read().replace('\n', ' ').replace('\r', '')
