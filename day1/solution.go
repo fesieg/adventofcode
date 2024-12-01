@@ -1,7 +1,7 @@
 package main
 
 import (
-	adventofcode "adventofcode/utils"
+	adventutils "adventofcode/utils"
 	"bufio"
 	"fmt"
 	"math"
@@ -24,7 +24,7 @@ func partTwo(sliceOne, sliceTwo []int) int {
 	similarityScore := 0
 
 	for i := 0; i < len(sliceOne); i++ {
-		countInSliceTwo := adventofcode.CountOccurrences(sliceTwo, sliceOne[i])
+		countInSliceTwo := adventutils.CountOccurrences(sliceTwo, sliceOne[i])
 		if countInSliceTwo > 0 {
 			similarityScore += countInSliceTwo * sliceOne[i]
 		}
@@ -44,7 +44,7 @@ func partOne(sliceOne, sliceTwo []int) int {
 }
 
 func getSortedListsFromInput(in string) ([]int, []int) {
-	content := adventofcode.GetFileContent(in)
+	content := adventutils.GetFileContent(in)
 
 	sliceOne := []int{}
 	sliceTwo := []int{}
@@ -54,7 +54,7 @@ func getSortedListsFromInput(in string) ([]int, []int) {
 		// split along three spaces specifically
 		ids := strings.Split(scanner.Text(), "   ")
 
-		firstIdInt, err := strconv.Atoi(strings.Trim(ids[0], ""))
+		firstIdInt, err := strconv.Atoi(strings.Trim(ids[0], " "))
 		if err == nil {
 			sliceOne = append(sliceOne, firstIdInt)
 		}
