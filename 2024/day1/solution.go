@@ -46,8 +46,7 @@ func partOne(sliceOne, sliceTwo []int) int {
 func getSortedListsFromInput(in string) ([]int, []int) {
 	content := adventutils.GetFileContent(in)
 
-	sliceOne := []int{}
-	sliceTwo := []int{}
+	sliceOne, sliceTwo := []int{}, []int{}
 
 	scanner := bufio.NewScanner(strings.NewReader(content))
 	for scanner.Scan() {
