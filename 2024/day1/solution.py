@@ -24,13 +24,9 @@ def partTwo(arr1: List[int], arr2: List[int]) -> int:
 
 
 def getSortedListsFromInput(input: str) -> List[List[int]]:
+    arr1, arr2 = []
 
-    content = adventutils.getTextFileContentAsListOfLines(input)
-
-    arr1 = []
-    arr2 = []
-
-    for line in content:
+    for line in adventutils.getTextFileContentAsListOfLines(input):
         ids = line.split("   ")
         arr1.append(int(ids[0]))
         arr2.append(int(ids[1]))
