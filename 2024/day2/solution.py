@@ -25,11 +25,7 @@ def reportIsSafe(report: List[int]) -> bool:
 
 
 def part1(reports: List[str]) -> int:
-    numberOfSafeReports = 0
-    for report in reports:
-        numberOfSafeReports += 1 if reportIsSafe(report) else 0
-
-    return numberOfSafeReports
+    return [reportIsSafe(report) for report in reports].count(True)
 
 
 def part2(reports: List[str]) -> int:
