@@ -43,33 +43,39 @@ def topo_sort(instruction, rules):
     return instruction
 
 def part_one(data_input):
-    result = 0
     valid_instructions = []
     rules = get_rules_from_input(data_input)    
     for line in get_pages_from_input(data_input):
         instruction = [int(page) for page in line.split(",")]
         if valid_order(instruction, rules):
-            result += 1
             valid_instructions.append(line)
-    
+            
+    return get_middle_sum(valid_instructions)
+
+
+def get_middle_sum(valid_instructions):
     middle_sum = 0
     for instruction in valid_instructions:
-        parts = instruction.split(",")
+        # TODO: refactor this ugly type check
+        if (type(instruction) == str):
+          parts = instruction.split(",")
+        else:
+          parts = instruction
         middle_index = len(parts) // 2
         middle_value = int(parts[middle_index])
         middle_sum += middle_value
 
     return middle_sum
 
+
 def part_two(data_input):
+    # broken
     rules = get_rules_from_input(data_input)
-    count_of_valid = 0
     invalid_instructions = []
     
     for line in get_pages_from_input(data_input):
         instruction = [int(page) for page in line.split(",")]
         if not find_valid(instruction, rules):
-            count_of_valid += 1
             invalid_instructions.append(instruction)
  
     sorted = []
@@ -78,7 +84,7 @@ def part_two(data_input):
         if sorted_instruction:
             sorted.append(sorted_instruction)
 
-    return sum([instruction[len(instruction) // 2] for instruction in sorted])
+    return get_middle_sum(sorted)
 
 
 def get_rules_from_input(input_str):
