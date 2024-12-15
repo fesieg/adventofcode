@@ -7,7 +7,7 @@ def formatContent(content: List[str]) -> List[List[int]]:
     return [list(map(int, line.split(" "))) for line in content]
 
 
-content = formatContent(adventutils.getTextFileContentAsListOfLines("./day2/input"))
+content = formatContent(adventutils.file_contest_as_list_of_lines("./day2/input"))
 
 
 def reportIsSafe(report: List[int]) -> bool:

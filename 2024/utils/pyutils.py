@@ -1,12 +1,12 @@
 from typing import List
 
 
-def getTextFileContentAsListOfLines(filePath: str) -> List[str]:
+def file_contest_as_list_of_lines(filePath: str) -> List[str]:
     with open(filePath) as inputFile:
         inputLines = inputFile.readlines()
     return [x.strip() for x in inputLines]
 
 
-def getTextFileContentAsString(filePath: str) -> str:
+def file_content_as_string(filePath: str) -> str:
     with open(filePath) as inputFile:
         return inputFile.read().replace("\n", " ").replace("\r", "")

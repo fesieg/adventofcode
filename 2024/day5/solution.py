@@ -44,5 +44,5 @@ def get_pages_from_input(input_str):
     return pages_raw.split(" ")
 
     
-input_data = adventutils.getTextFileContentAsString("./day5/simpleInput.txt")
+input_data = adventutils.file_content_as_string("./day5/simpleInput.txt")
 print(f"Part 1 = {part_one(input_data)}")

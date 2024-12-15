@@ -2,7 +2,7 @@ import { getFileContent } from "../utils/tsutils";
 
 const stones = (await getFileContent("input.txt")).split(" ").map(Number);
 
-function getChangedStones(stone: string): number[] | BigInt[]{
+function getChangedStones(stone: string): number[]{
   if (stone === "0") {
     return [1];
   }
