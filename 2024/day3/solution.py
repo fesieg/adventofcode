@@ -7,7 +7,7 @@ test_strings = [
     "mul(123456789,987654321)",
     "mul(123,)",
     "mul(,123)",
-    "amull(123,456)"
+    "amull(123,456)",
 ]
 
 for test in test_strings:
