@@ -22,11 +22,12 @@ type Bot struct {
 func main() {
 	lines := getContentAsListOfStrings("./input.txt")
 
-	var bots []Bot
+	bots := make([]Bot, 0, len(lines))
+
+	maxMoves := 100
 
 	// for the simple input
 	// xLimit, yLimit := 11, 7
-
 	xLimit, yLimit := 101, 103
 
 	for _, line := range lines {
@@ -34,7 +35,7 @@ func main() {
 		bots = append(bots, Bot{Position{botX, botY}, botXVel, botYVel})
 	}
 
-	for move := 0; move < 100; move++ {
+	for move := 0; move < maxMoves; move++ {
 		for i := range bots {
 			moveBot(&bots[i], xLimit, yLimit)
 		}
