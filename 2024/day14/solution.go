@@ -24,24 +24,24 @@ func main() {
 
 	bots := make([]Bot, 0, len(lines))
 
-	maxMoves := 100
-
-	// for the simple input
-	// xLimit, yLimit := 11, 7
-	xLimit, yLimit := 101, 103
+	const (
+		MaxMoves = 100
+		XLim     = 101
+		YLim     = 103
+	)
 
 	for _, line := range lines {
 		botX, botY, botXVel, botYVel := getBotFromLine(line)
 		bots = append(bots, Bot{Position{botX, botY}, botXVel, botYVel})
 	}
 
-	for move := 0; move < maxMoves; move++ {
+	for move := 0; move < MaxMoves; move++ {
 		for i := range bots {
-			moveBot(&bots[i], xLimit, yLimit)
+			moveBot(&bots[i], XLim, YLim)
 		}
 	}
 
-	q1, q2, q3, q4 := countBotsInQuadrants(bots, xLimit, yLimit)
+	q1, q2, q3, q4 := countBotsInQuadrants(bots, XLim, YLim)
 	fmt.Println("PART 1: ", q1*q2*q3*q4)
 }
 
